@@ -1,0 +1,105 @@
+# Camera
+Scale -1 1 1
+# swap x-axis direction
+# position
+# target
+LookAt -0.27799994 -0.8 0.273
+    -0.27799994 -0.799 0.273
+    -2.2799732e-14 7.54979e-8 1
+# up
+Camera "perspective"
+    "float fov" [ 39.14625 ]
+##  "integer outlierrejection_k" [ 10 ]
+Film "gbuffer"
+    "string filename" [ "video-c112_jitter_032spp_191.exr" ] 
+    "integer yresolution" [ 200 ]
+    "integer xresolution" [ 200 ]
+Sampler "zsobol"
+    "integer pixelsamples" [ 32 ]
+    "integer seed" [ 191 ]
+Integrator "path"
+
+Option "disablewavelengthjitter" true
+Option "seed" 191
+
+
+WorldBegin
+
+# box_Material
+# box_Material_paleblue
+MakeNamedMaterial "box_Material"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.5 0.5 0.5 ]
+# cbox_green
+MakeNamedMaterial "box_Material_paleblue"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.3 0.3 0.7 ]
+# cbox_Material
+MakeNamedMaterial "cbox_green"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0 0.5 0 ]
+# cbox_red
+MakeNamedMaterial "cbox_Material"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.4 0.4 0.4 ]
+# Emitter
+MakeNamedMaterial "cbox_red"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.5 0 0 ]
+# Light
+MakeNamedMaterial "Emitter"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 1 1 1 ]
+
+AttributeBegin
+    LightSource "infinite"
+        "float scale" [5]
+        "string filename" "textures/v4-pisa.exr"
+AttributeEnd
+# large_box
+
+AttributeBegin
+    Transform [ -48.88637 187.59164 -0.000028849516 0 -0.000003318031 0.000059382175 530 0 187.59164 48.88637 -0.000007212379 0 -0.36800006 0.700 0.16500004 1  ]
+    NamedMaterial "box_Material_paleblue"
+    Shape "trianglemesh"
+        "integer indices" [ 0 1 2 0 2 3 4 5 6 4 6 7 8 9 10 8 10 11 12 13 14 12 14 
+                            15 16 17 18 16 18 19 20 21 22 20 22 23 ]
+        "point3 P" [ -0.0005 0.0005 -0.0005 -0.0005 -0.0005 -0.0005 -0.0005 -0.0005 
+                     0.0005 -0.0005 0.0005 0.0005 -0.0005 0.0005 0.0005 0.0005 0.0005 
+                     0.0005 0.0005 0.0005 -0.0005 -0.0005 0.0005 -0.0005 0.0005 0.0005 
+                     0.0005 0.0005 -0.0005 0.0005 0.0005 -0.0005 -0.0005 0.0005 0.0005 
+                     -0.0005 -0.0005 -0.0005 -0.0005 0.0005 -0.0005 -0.0005 0.0005 
+                     -0.0005 0.0005 -0.0005 -0.0005 0.0005 -0.0005 -0.0005 -0.0005 
+                     -0.0005 0.0005 -0.0005 0.0005 0.0005 -0.0005 0.0005 -0.0005 
+                     -0.0005 0.0005 -0.0005 0.0005 0.0005 0.0005 0.0005 -0.0005 0.0005 
+                     0.0005 -0.0005 -0.0005 0.0005 ]
+AttributeEnd
+# small_box
+
+AttributeBegin
+    Transform [ -79.05503 23.591385 0.0000030936346 0 0.0000011833528 -0.0000068531326 82.50001 0 23.591385 79.05503 0.0000062285776 0 -0.18500002 0.16900001 0.08250002 1  ]
+    # Animation
+    Translate 0.002183 0.000000 0.000000
+    # .4  2.5 2.8
+    NamedMaterial "box_Material"
+    Shape "trianglemesh"
+        "integer indices" [ 0 1 2 0 2 3 4 5 6 4 6 7 8 9 10 8 10 11 12 13 14 12 14 
+                            15 16 17 18 16 18 19 20 21 22 20 22 23 ]
+        "point3 P" [ -0.001 0.001 -0.001 -0.001 -0.001 -0.001 -0.001 -0.001 0.001 
+                     -0.001 0.001 0.001 -0.001 0.001 0.001 0.001 0.001 0.001 0.001 
+                     0.001 -0.001 -0.001 0.001 -0.001 0.001 0.001 0.001 0.001 -0.001 
+                     0.001 0.001 -0.001 -0.001 0.001 0.001 -0.001 -0.001 -0.001 -0.001 
+                     0.001 -0.001 -0.001 0.001 -0.001 0.001 -0.001 -0.001 0.001 -0.001 
+                     -0.001 -0.001 -0.001 0.001 -0.001 0.001 0.001 -0.001 0.001 -0.001 
+                     -0.001 0.001 -0.001 0.001 0.001 0.001 0.001 -0.001 0.001 0.001 
+                     -0.001 -0.001 0.001 ]
+AttributeEnd
+# cornell_box
+
+AttributeBegin
+    Transform [ -1 -1.509958e-7 0 0 1.1399866e-14 -7.54979e-8 1 0 -1.509958e-7 1 7.54979e-8 0 0 0 0 1  ]
+    NamedMaterial "cbox_Material"
+    Shape "trianglemesh"
+        "integer indices" [ 0 1 2 0 2 3 ]
+        "point3 P" [ -10 0 10 10 0 10 10 0 -10 0 0 0 ]
+AttributeEnd

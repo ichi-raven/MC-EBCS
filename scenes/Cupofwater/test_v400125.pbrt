@@ -1,0 +1,68 @@
+Film "gbuffer"  
+    "string filename" [ "cupOfWaterHalfScale00126.exr" ]
+    "integer yresolution" [ 200 ]
+    "integer xresolution" [ 200 ]
+PixelFilter "box"
+    "float xradius" [ 0.5 ]
+    "float yradius" [ 0.5 ]
+Accelerator "bvh"
+    "integer maxnodeprims" [ 4 ]
+    "string splitmethod" [ "sah" ]
+Sampler "zsobol"
+    "integer pixelsamples" [ 4096 ]
+Integrator "path"
+    "integer maxdepth" [ 10 ]
+Scale -1 1 1
+#avoid the 'flipped image' bug..
+LookAt 7.3588915 -6.925791 4.958309
+    6.707333 -6.31162 4.5130377
+    -0.32401347 0.30542085 0.89539564
+Camera "perspective"
+    "float fov" [ 22.895195 ]
+WorldBegin
+AttributeBegin
+    LightSource "infinite"
+        "string filename" "textures/sky.exr"
+AttributeEnd
+AttributeBegin
+    Translate 4.0762453 1.005454 5.903862
+    LightSource "point"
+        "rgb I" [ 0 0 0 ]
+AttributeEnd
+AttributeBegin
+    Transform [ 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1  ]
+    Material "dielectric"
+        "float eta" [ 1.5 ]
+        "float vroughness" [ 0.001 ]
+        "float uroughness" [ 0.001 ]
+    Shape "plymesh"
+        "string filename" [ "meshes/00126/Cylinder_mat0.ply" ]
+AttributeEnd
+AttributeBegin
+    Transform [ 0.1 0 0 0 0 0.1 0 0 0 0 0.1 0 0.6 0 2 1  ]
+    Material "dielectric"
+        "float eta" [ 1.333 ]
+        "float vroughness" [ 0 ]
+        "float uroughness" [ 0 ]
+    Shape "plymesh"
+        "string filename" [ "meshes/00126/Sphere_mat0.ply" ]
+AttributeEnd
+AttributeBegin
+    Transform [ 1.8 0 0 0 0 1.8 0 0 0 0 3 0 0 0 0.6 1  ]
+    Material "dielectric"
+        "float eta" [ 1.333 ]
+        "float vroughness" [ 0 ]
+        "float uroughness" [ 0 ]
+    Shape "plymesh"
+        "string filename" [ "meshes/00126/Liquid Domain_mat0.ply" ]
+AttributeEnd
+AttributeBegin
+    Transform [ 1 0 0 0 0 1 0 0 0 0 1 0 10.774392 -1.262765 2.492388 1  ]
+    Material "dielectric"
+        "float eta" [ 1 ]
+        "float vroughness" [ 0 ]
+        "float uroughness" [ 0 ]
+    Shape "plymesh"
+        "string filename" [ "meshes/00126/Sphere.001_mat0.ply" ]
+AttributeEnd
+Option "seed" 125
