@@ -1,11 +1,11 @@
 import subprocess
 import platform
 
-pbrt_path = "./build/pbrt"
+pbrt_path = "./build/pbrt" # default executable path
 if platform.system() == "Windows":
     pbrt_path = ".\\build\\Release\\pbrt.exe"
 
-    commands = [
+commands = [
     # baseline
     f"{pbrt_path} --spp 4096 --threshold 3.0 --uniform ./scenes/LivingRoom/",
     f"{pbrt_path} --spp 4096 --threshold 0.6 --uniform ./scenes/SanMiguel/",
